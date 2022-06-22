@@ -1,0 +1,12 @@
+idp\utils\SAMLAttribute.class
+idp\utils\SAMLBuilder.class
+idp\controller\SsoController.class
+idp\config\SharedConfiguration.class
+idp\saml\SAMLMessageHandler.class
+idp\config\AuthenticationMethod.class
+idp\utils\ProxiedSAMLContextProviderLB.class
+idp\saml\FederatedUserAuthenticationToken.class
+idp\config\IdpConfiguration.class
+idp\utils\KeyStoreLocator.class
+idp\utils\SAMLPrincipal.class
+idp\utils\UpgradedSAMLBootstrap.class
