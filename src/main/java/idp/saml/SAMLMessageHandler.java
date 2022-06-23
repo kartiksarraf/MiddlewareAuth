@@ -49,7 +49,7 @@ public class SAMLMessageHandler {
   private final IdpConfiguration idpConfiguration;
 
   private final List<ValidatorSuite> validatorSuites;
-  public final ProxiedSAMLContextProviderLB proxiedSAMLContextProviderLB;
+  private final ProxiedSAMLContextProviderLB proxiedSAMLContextProviderLB;
 
   public SAMLMessageHandler(KeyManager keyManager, Collection<SAMLMessageDecoder> decoders,
                             SAMLMessageEncoder encoder, SecurityPolicyResolver securityPolicyResolver,
@@ -60,15 +60,15 @@ public class SAMLMessageHandler {
     this.resolver = securityPolicyResolver;
     this.idpConfiguration = idpConfiguration;
     this.validatorSuites = asList(
-      getValidatorSuite("saml2-core-schema-validator"),
-      getValidatorSuite("saml2-core-spec-validator"));
+            getValidatorSuite("saml2-core-schema-validator"),
+            getValidatorSuite("saml2-core-spec-validator"));
     this.proxiedSAMLContextProviderLB = new ProxiedSAMLContextProviderLB(new URI(idpBaseUrl));
   }
 
-  public SAMLMessageContext extractSAMLMessageContext(HttpServletRequest request, HttpServletResponse response, boolean postRequest) throws ValidationException, MessageDecodingException, MetadataProviderException, SecurityException {
+  public SAMLMessageContext extractSAMLMessageContext(HttpServletRequest request, HttpServletResponse response, boolean postRequest) throws ValidationException, SecurityException, MessageDecodingException, MetadataProviderException {
     SAMLMessageContext messageContext = new SAMLMessageContext();
 
-   /* proxiedSAMLContextProviderLB.populateGenericContext(request, response, messageContext);*/
+    proxiedSAMLContextProviderLB.populateGenericContext(request, response, messageContext);
 
     messageContext.setSecurityPolicyResolver(resolver);
 
@@ -87,12 +87,12 @@ public class SAMLMessageHandler {
 
   private SAMLMessageDecoder samlMessageDecoder(boolean postRequest) {
     return decoders.stream().filter(samlMessageDecoder -> postRequest ?
-      samlMessageDecoder.getBindingURI().equals(SAMLConstants.SAML2_POST_BINDING_URI) :
-      samlMessageDecoder.getBindingURI().equals(SAMLConstants.SAML2_REDIRECT_BINDING_URI))
-      .findAny()
-      .orElseThrow(() -> new RuntimeException(String.format("Only %s and %s are supported",
-        SAMLConstants.SAML2_REDIRECT_BINDING_URI,
-        SAMLConstants.SAML2_POST_BINDING_URI)));
+                    samlMessageDecoder.getBindingURI().equals(SAMLConstants.SAML2_POST_BINDING_URI) :
+                    samlMessageDecoder.getBindingURI().equals(SAMLConstants.SAML2_REDIRECT_BINDING_URI))
+            .findAny()
+            .orElseThrow(() -> new RuntimeException(String.format("Only %s and %s are supported",
+                    SAMLConstants.SAML2_REDIRECT_BINDING_URI,
+                    SAMLConstants.SAML2_POST_BINDING_URI)));
   }
 
   @SuppressWarnings("unchecked")

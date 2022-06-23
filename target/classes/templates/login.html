@@ -15,7 +15,7 @@
         </header>
         <div class="explanation-content">
             <p>
-                When the Mujina IDP sends a SAML assertion back to the service provider, all the attributes will be
+                When the IDP sends a SAML assertion back to the service provider, all the attributes will be
                 added as SAML AttributeStatement elements.
             </p>
             <p>
@@ -42,7 +42,7 @@
 
 <main class="login-container">
     <div class="login">
-        <h1>Mujina Identity Provider</h1>
+        <h1>Custom Identity Provider</h1>
         <p th:if="${param.error}" class="error">Wrong user or password</p>
         <form class="login-form" th:action="@{/login}" method="post">
             <label for="username" class="sr-only">Username</label>
@@ -67,7 +67,7 @@
             </div>
             <ul id="attribute-list" class="attribute-list"></ul>
             <section class="powered-by">
-                <a href="https://openconext.org/" target="_blank" rel="noreferrer noopener">Copyright © 2018 OpenConext</a>
+                <a href="https://openconext.org/" target="_blank" rel="noreferrer noopener">Copyright © 2022 OpenConext</a>
             </section>
         </form>
     </div>
