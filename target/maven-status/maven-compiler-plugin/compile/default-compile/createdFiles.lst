@@ -19,6 +19,7 @@ idp\controller\SharedController.class
 idp\utils\SAMLBuilder.class
 idp\saml\SAMLMessageHandler.class
 idp\model\User.class
+idp\config\SwaggerConfig.class
 idp\utils\SAMLPrincipal.class
 idp\model\Credential.class
 idp\saml\ForceAuthnFilter.class
