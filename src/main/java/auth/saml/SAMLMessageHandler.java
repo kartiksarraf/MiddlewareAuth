@@ -65,7 +65,8 @@ public class SAMLMessageHandler {
     this.proxiedSAMLContextProviderLB = new ProxiedSAMLContextProviderLB(new URI(idpBaseUrl));
   }
 
-  public SAMLMessageContext extractSAMLMessageContext(HttpServletRequest request, HttpServletResponse response, boolean postRequest) throws ValidationException, SecurityException, MessageDecodingException, MetadataProviderException {
+  public SAMLMessageContext extractSAMLMessageContext(HttpServletRequest request, HttpServletResponse response,
+                                                      boolean postRequest, boolean isLogoutRequest) throws ValidationException, SecurityException, MessageDecodingException, MetadataProviderException {
     SAMLMessageContext messageContext = new SAMLMessageContext();
 
     proxiedSAMLContextProviderLB.populateGenericContext(request, response, messageContext);
@@ -76,6 +77,15 @@ public class SAMLMessageHandler {
     samlMessageDecoder.decode(messageContext);
 
     SAMLObject inboundSAMLMessage = messageContext.getInboundSAMLMessage();
+
+    if (isLogoutRequest) {
+      LogoutRequest logoutRequest = (LogoutRequest) inboundSAMLMessage;
+      //lambda is poor with Exceptions
+      for (ValidatorSuite validatorSuite : validatorSuites) {
+        validatorSuite.validate(logoutRequest);
+      }
+      return messageContext;
+    }
 
     AuthnRequest authnRequest = (AuthnRequest) inboundSAMLMessage;
     //lambda is poor with Exceptions
@@ -135,6 +145,37 @@ public class SAMLMessageHandler {
 
     encoder.encode(messageContext);
 
+  }
+
+  public void sendLogoutResponse(LogoutRequest logoutRequest, HttpServletResponse response, String logoutUrl) throws MessageEncodingException {
+    Status status = buildStatus(StatusCode.SUCCESS_URI);
+
+    String entityId = idpConfiguration.getEntityId();
+
+    Issuer issuer = buildIssuer(entityId);
+    LogoutResponse logoutResponse = buildSAMLObject(LogoutResponse.class, LogoutResponse.DEFAULT_ELEMENT_NAME);
+
+    logoutResponse.setIssuer(issuer);
+    logoutResponse.setID(SAMLBuilder.randomSAMLId());
+    logoutResponse.setIssueInstant(new DateTime());
+    logoutResponse.setInResponseTo(logoutRequest.getID());
+    logoutResponse.setDestination(logoutUrl);
+    logoutResponse.setStatus(status);
+
+    Endpoint endpoint = buildSAMLObject(Endpoint.class, SingleSignOnService.DEFAULT_ELEMENT_NAME);
+    endpoint.setLocation(logoutUrl);
+
+    HttpServletResponseAdapter outTransport = new HttpServletResponseAdapter(response, false);
+
+    BasicSAMLMessageContext messageContext = new BasicSAMLMessageContext();
+
+    messageContext.setOutboundMessageTransport(outTransport);
+    messageContext.setPeerEntityEndpoint(endpoint);
+    messageContext.setOutboundSAMLMessage(logoutResponse);
+
+    messageContext.setOutboundMessageIssuer(entityId);
+
+    encoder.encode(messageContext);
   }
 
   private Credential resolveCredential(String entityId) {

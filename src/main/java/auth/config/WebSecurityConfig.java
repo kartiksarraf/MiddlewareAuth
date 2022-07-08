@@ -31,15 +31,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.saml.SAMLAuthenticationProvider;
-import org.springframework.security.saml.SAMLBootstrap;
-import org.springframework.security.saml.SAMLEntryPoint;
-import org.springframework.security.saml.SAMLProcessingFilter;
+import org.springframework.security.saml.*;
 import org.springframework.security.saml.context.SAMLContextProvider;
 import org.springframework.security.saml.key.JKSKeyManager;
 import org.springframework.security.saml.metadata.*;
 import org.springframework.security.saml.parser.ParserPoolHolder;
 import org.springframework.security.saml.util.VelocityFactory;
+import org.springframework.security.saml.websso.SingleLogoutProfile;
+import org.springframework.security.saml.websso.SingleLogoutProfileImpl;
 import org.springframework.security.saml.websso.WebSSOProfileOptions;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.FilterChainProxy;
@@ -48,6 +47,9 @@ import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -209,14 +211,14 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                     .addFilterBefore(new ForceAuthnFilter(samlMessageHandler), SAMLAttributeAuthenticationFilter.class)
                     .addFilterBefore(metadataGeneratorFilter(), ChannelProcessingFilter.class)
                     .addFilterAfter(samlFilter(), BasicAuthenticationFilter.class)
-                    /*.formLogin()
-                    .loginPage(this.loginPageUrl)
-                    .permitAll()
-                    .failureUrl("/login?error=true")
-                    .permitAll()
-                    .and()*/
                     .logout()
-                    .logoutSuccessUrl("/");
+                    .addLogoutHandler((request, response, authentication) -> {
+                        try {
+                            response.sendRedirect("/saml/logout");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
         }
 
         @Bean
@@ -269,11 +271,47 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         }
 
         @Bean
+        public SingleLogoutProfile logoutProfile() {
+            return new SingleLogoutProfileImpl();
+        }
+
+        @Bean
+        public SimpleUrlLogoutSuccessHandler successLogoutHandler() {
+            SimpleUrlLogoutSuccessHandler successLogoutHandler = new SimpleUrlLogoutSuccessHandler();
+            successLogoutHandler.setDefaultTargetUrl("/");
+            return successLogoutHandler;
+        }
+
+        @Bean
+        public SecurityContextLogoutHandler logoutHandler() {
+            SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+            logoutHandler.setInvalidateHttpSession(true);
+            logoutHandler.setClearAuthentication(true);
+            return logoutHandler;
+        }
+
+        @Bean
+        public SAMLLogoutProcessingFilter samlLogoutProcessingFilter() {
+            return new SAMLLogoutProcessingFilter(successLogoutHandler(), logoutHandler());
+        }
+
+        @Bean
+        public SAMLLogoutFilter samlLogoutFilter() {
+            return new SAMLLogoutFilter(successLogoutHandler(),
+                    new LogoutHandler[] { logoutHandler() },
+                    new LogoutHandler[] { logoutHandler() });
+        }
+
+        @Bean
         public FilterChainProxy samlFilter() throws Exception {
             List<SecurityFilterChain> chains = new ArrayList<>();
             chains.add(chain("/login/**", samlEntryPoint()));
             chains.add(chain("/metadata/**", metadataDisplayFilter()));
             chains.add(chain(assertionConsumerServiceURLPath + "/**", samlWebSSOProcessingFilter()));
+            chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/logout/**"),
+                    samlLogoutFilter()));
+            chains.add(new DefaultSecurityFilterChain(new AntPathRequestMatcher("/saml/SingleLogout/**"),
+                    samlLogoutProcessingFilter()));
             return new FilterChainProxy(chains);
         }
 
