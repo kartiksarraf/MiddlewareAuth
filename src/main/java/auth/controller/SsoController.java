@@ -145,10 +145,12 @@ public class SsoController {
 
     SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, true);
     log.info("Saml Message Context {}", messageContext);
-    LogoutRequest logoutRequest = (LogoutRequest) messageContext.getInboundSAMLMessage();
-    samlMessageHandler.sendLogoutResponse(logoutRequest, response, logoutUrl);
+
     response.sendRedirect(endSessionEndpoint + "?post_logout_redirect_uri=" +
             URLEncoder.encode(appUrl, "UTF-8"));
+
+    LogoutRequest logoutRequest = (LogoutRequest) messageContext.getInboundSAMLMessage();
+    samlMessageHandler.sendLogoutResponse(logoutRequest, response, logoutUrl);
   }
 
 }
