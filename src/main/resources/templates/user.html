@@ -10,14 +10,14 @@
         <h1>Custom Identity Provider</h1>
         <a class="button" th:href="@{/logout}">Logout</a>
         <p>The following information is stored in your authentication</p>
-        <ul>
+       <!-- <ul>
             <li>Name</li>
             <li th:text="${user.principal}"></li>
         </ul>
         <ul th:each="authority : ${user.authorities}">
             <li>Authority</li>
             <li th:text="${authority.authority}"></li>
-        </ul>
+        </ul>-->
         <section class="powered-by">
             <a href="https://openconext.org/" target="_blank" rel="noreferrer noopener">Copyright © 2022 OpenConext</a>
         </section>

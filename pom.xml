@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.appcino</groupId>
-    <artifactId>CustomIdentityProvider</artifactId>
+    <artifactId>MiddlewareAuth</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -80,7 +80,7 @@
     </repositories>
 
     <build>
-        <finalName>CustomIdp</finalName>
+        <finalName>MiddlewareAuth</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
