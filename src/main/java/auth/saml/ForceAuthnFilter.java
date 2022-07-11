@@ -28,7 +28,7 @@ public class ForceAuthnFilter extends OncePerRequestFilter {
     }
     SAMLMessageContext messageContext;
     try {
-      messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, request.getMethod().equalsIgnoreCase("POST"));
+      messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, request.getMethod().equalsIgnoreCase("POST"), false);
     } catch (Exception e) {
       throw new IllegalArgumentException(e);
     }

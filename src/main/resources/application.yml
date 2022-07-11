@@ -52,12 +52,24 @@ sp:
   single_sign_on_service_location: https://login.microsoftonline.com/980fac14-ee17-4230-bee0-1508d03b9f2f/saml2
   # ACS location
   acs_location_path: /saml/SSO
+  # Logout Path
+  logout_path: /saml/logout
+  # Single Logout Path
+  single_logout_path: /saml/SingleLogout
   # Protocol binding
   protocol_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
   # Do we sign the authnRequest
   needs_signing: true
   # Are endpoints compared. If so then pay notice to the base_url when behind a load balancer
   compare_endpoints: true
+
+appian:
+  # Logout URL
+  logout_url: https://bpmdev.appcino.com/suite/
+
+azure:
+  # Logout URL
+  logout_url: https://login.microsoftonline.com/common/oauth2/logout
 
 spring:
   mvc:

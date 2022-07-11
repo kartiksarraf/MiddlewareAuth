@@ -75,7 +75,12 @@ public class MetadataController {
     singleSignOnService.setLocation(idpBaseUrl + "/SingleSignOnService");
     singleSignOnService.setBinding(SAMLConstants.SAML2_REDIRECT_BINDING_URI);
 
+    SingleLogoutService singleLogoutService = buildSAMLObject(SingleLogoutService.class, SingleLogoutService.DEFAULT_ELEMENT_NAME);
+    singleLogoutService.setLocation(idpBaseUrl + "/SingleLogoutService");
+    singleLogoutService.setBinding(SAMLConstants.SAML2_REDIRECT_BINDING_URI);
+
     idpssoDescriptor.getSingleSignOnServices().add(singleSignOnService);
+    idpssoDescriptor.getSingleLogoutServices().add(singleLogoutService);
 
     X509KeyInfoGeneratorFactory keyInfoGeneratorFactory = new X509KeyInfoGeneratorFactory();
     keyInfoGeneratorFactory.setEmitEntityCertificate(true);

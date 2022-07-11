@@ -6,6 +6,7 @@ import auth.utils.SAMLAttribute;
 import auth.utils.SAMLPrincipal;
 import org.opensaml.common.binding.SAMLMessageContext;
 import org.opensaml.saml2.core.AuthnRequest;
+import org.opensaml.saml2.core.LogoutRequest;
 import org.opensaml.saml2.core.NameIDType;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
 import org.opensaml.ws.message.decoder.MessageDecodingException;
@@ -14,7 +15,10 @@ import org.opensaml.xml.io.MarshallingException;
 import org.opensaml.xml.security.SecurityException;
 import org.opensaml.xml.signature.SignatureException;
 import org.opensaml.xml.validation.ValidationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -25,9 +29,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
@@ -43,6 +47,12 @@ public class SsoController {
   @Autowired
   private IdpConfiguration idpConfiguration;
 
+  @Value("${appian.logout_url}")
+  private String logoutUrl;
+
+  @Value("${idp.base_url}")
+  private String appUrl;
+
   @GetMapping("/SingleSignOnService")
   public void singleSignOnServiceGet(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
           throws IOException, MarshallingException, SignatureException, MessageEncodingException, ValidationException, SecurityException, MessageDecodingException, MetadataProviderException, ServletException {
@@ -50,14 +60,14 @@ public class SsoController {
   }
 
   @PostMapping("/SingleSignOnService")
-  public void singleSignOnServicePost(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+  public void singleLogoutServicePost(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
           throws IOException, MarshallingException, SignatureException, MessageEncodingException, ValidationException, SecurityException, MessageDecodingException, MetadataProviderException, ServletException {
     doSSO(request, response, authentication, true);
   }
 
   @SuppressWarnings("unchecked")
   private void doSSO(HttpServletRequest request, HttpServletResponse response, Authentication authentication, boolean postRequest) throws ValidationException, SecurityException, MessageDecodingException, MarshallingException, SignatureException, MessageEncodingException, MetadataProviderException, IOException, ServletException {
-    SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest);
+    SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, false);
     log.info("Saml Message Context {}", messageContext);
     AuthnRequest authnRequest = (AuthnRequest) messageContext.getInboundSAMLMessage();
 
@@ -114,6 +124,14 @@ public class SsoController {
               }
             })
             .collect(toList());
+  }
+
+  private void doLogout(HttpServletRequest request, HttpServletResponse response, Authentication authentication, boolean postRequest) throws ValidationException, MessageDecodingException, SecurityException, MetadataProviderException, MessageEncodingException, IOException, ServletException {
+    SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, true);
+    log.info("Saml Message Context {}", messageContext);
+
+    LogoutRequest logoutRequest = (LogoutRequest) messageContext.getInboundSAMLMessage();
+    samlMessageHandler.sendLogoutResponse(logoutRequest, response, logoutUrl);
   }
 
 }

@@ -80,7 +80,7 @@
     </repositories>
 
     <build>
-        <finalName>MiddlewareAuth</finalName>
+        <finalName>CustomIdp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
