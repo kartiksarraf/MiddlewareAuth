@@ -221,9 +221,8 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                     .httpBasic().authenticationEntryPoint(samlEntryPoint())
                     .and()
                     .csrf().disable()
-                    .addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                    .addFilterBefore(new ForceAuthnFilter(samlMessageHandler), SAMLAttributeAuthenticationFilter.class)
-                    .addFilterBefore(metadataGeneratorFilter(), ChannelProcessingFilter.class)
+                    .addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class) /* For Custom SP */
+                    .addFilterBefore(metadataGeneratorFilter(), ChannelProcessingFilter.class) /* For Custom IDP */
                     .addFilterAfter(samlFilter(), BasicAuthenticationFilter.class)
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/SingleLogoutService"))

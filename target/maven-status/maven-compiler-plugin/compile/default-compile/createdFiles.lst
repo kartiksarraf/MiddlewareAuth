@@ -5,7 +5,6 @@ auth\utils\UpgradedSAMLBootstrap.class
 auth\controllers\SsoController.class
 auth\saml\SAMLConfig$1.class
 auth\constants\SamlResponseAttributes.class
-auth\saml\ForceAuthnFilter.class
 auth\saml\DefaultMetadataDisplayFilter.class
 auth\controllers\IdpController.class
 auth\saml\SAMLConfig.class
