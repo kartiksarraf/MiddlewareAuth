@@ -37,6 +37,12 @@ public abstract class SharedConfiguration {
 
   public abstract void reset();
 
+  /**
+   * Set Entity Id
+   *
+   * @param newEntityId
+   * @param addTokenToStore
+   */
   public void setEntityId(String newEntityId, boolean addTokenToStore) {
     if (addTokenToStore) {
       try {
@@ -51,6 +57,12 @@ public abstract class SharedConfiguration {
     this.entityId = newEntityId;
   }
 
+  /**
+   * Inject Credentials in keystore
+   *
+   * @param certificate
+   * @param pemKey
+   */
   public void injectCredential(final String certificate, final String pemKey) {
     try {
       KeyStore keyStore = keyManager.getKeyStore();
@@ -63,6 +75,13 @@ public abstract class SharedConfiguration {
     }
   }
 
+  /**
+   * Reset Keystore
+   *
+   * @param alias
+   * @param privateKey
+   * @param certificate
+   */
   protected void resetKeyStore(String alias, String privateKey, String certificate) {
     try {
       KeyStore keyStore = keyManager.getKeyStore();
@@ -76,6 +95,11 @@ public abstract class SharedConfiguration {
     }
   }
 
+  /**
+   * Set Signature algorithm
+   *
+   * @param signatureAlgorithm
+   */
   public void setSignatureAlgorithm(String signatureAlgorithm) {
     this.signatureAlgorithm = signatureAlgorithm;
     BasicSecurityConfiguration.class.cast(Configuration.getGlobalSecurityConfiguration()).registerSignatureAlgorithmURI("RSA", signatureAlgorithm);

@@ -45,6 +45,10 @@ public class SpConfiguration extends SharedConfiguration {
         reset();
     }
 
+    /**
+     * Reset Service Provider Configuration
+     *
+     */
     @Override
     public void reset() {
         setEntityId(defaultEntityId, false);

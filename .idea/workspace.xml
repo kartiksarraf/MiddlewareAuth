@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/configurations/SharedConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/SharedConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/configurations/SpConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/SpConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +103,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/auth/configurations/SharedConfiguration.java</url>
-          <line>43</line>
+          <line>49</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -20,7 +20,6 @@ import org.opensaml.xml.parse.XMLParserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
@@ -78,6 +77,19 @@ public class WebSecurityConfig implements WebMvcConfigurer {
     @Value("${secure_cookie}")
     private boolean secureCookie;
 
+    /**
+     * Bean for SAML Message handler: use for sending saml messages (request and response)
+     *
+     * @param clockSkew
+     * @param expires
+     * @param idpBaseUrl
+     * @param compareEndpoints
+     * @param idpConfiguration
+     * @param keyManager
+     * @return
+     * @throws XMLParserException
+     * @throws URISyntaxException
+     */
     @Bean
     @Autowired
     public SAMLMessageHandler samlMessageHandler(@Value("${idp.clock_skew}") int clockSkew,
@@ -111,11 +123,31 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 idpBaseUrl);
     }
 
+    /**
+     * Saml Bootstrap Bean
+     *
+     * @return
+     */
     @Bean
     public static SAMLBootstrap sAMLBootstrap() {
         return new UpgradedSAMLBootstrap();
     }
 
+    /**
+     * Set Key Manager using JKSKeyManager
+     *
+     * @param idpEntityId
+     * @param idpPrivateKey
+     * @param idpCertificate
+     * @param idpPassphrase
+     * @return
+     * @throws InvalidKeySpecException
+     * @throws CertificateException
+     * @throws NoSuchAlgorithmException
+     * @throws KeyStoreException
+     * @throws IOException
+     * @throws XMLStreamException
+     */
     @Autowired
     @Bean
     public JKSKeyManager keyManager(@Value("${idp.entity_id}") String idpEntityId,
@@ -165,6 +197,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
         private DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
 
+        /**
+         * SAML Authentication Filter, if config for auth success and failure
+         *
+         * @return
+         * @throws Exception
+         */
         private SAMLAttributeAuthenticationFilter authenticationFilter() throws Exception {
             SAMLAttributeAuthenticationFilter filter = new SAMLAttributeAuthenticationFilter();
             filter.setAuthenticationManager(authenticationManagerBean());
@@ -198,6 +236,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             web.ignoring().antMatchers("/internal/**");
         }
 
+        /**
+         * Main Configure bean for spring security ##### VERY IMPORTANT #####
+         *
+         * @param http
+         * @throws Exception
+         */
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
@@ -223,6 +267,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                     });
         }
 
+        /**
+         * Success redirect handler: when auth is successful from actual azure ad,
+         * then user prompt to user.html
+         *
+         * @return
+         */
         @Bean
         public SavedRequestAwareAuthenticationSuccessHandler successRedirectHandler() {
             SavedRequestAwareAuthenticationSuccessHandler successRedirectHandler =
@@ -231,12 +281,25 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             return successRedirectHandler;
         }
 
+        /**
+         * Configure application that user two authentication providers
+         * 1. samlAuthenticationProvider: Work As A SP (send auth request to actual Azure AD)
+         * 2. CustomAuthenticationProvider: Work as A IDP (send auth response to actual sp: appian env)
+         *
+         * @param auth
+         */
         @Override
         public void configure(AuthenticationManagerBuilder auth) {
             auth.authenticationProvider(samlAuthenticationProvider());
             auth.authenticationProvider(new CustomAuthenticationProvider(idpConfiguration));
         }
 
+        /**
+         * Authentication manager bean
+         *
+         * @return
+         * @throws Exception
+         */
         @Bean
         public AuthenticationManager authenticationManagerBean() throws Exception {
             return super.authenticationManagerBean();
@@ -249,6 +312,11 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             return displayFilter;
         }
 
+        /**
+         * Authentication Failure Handler Bean
+         *
+         * @return
+         */
         @Bean
         public SimpleUrlAuthenticationFailureHandler authenticationFailureHandler() {
             SimpleUrlAuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
@@ -277,6 +345,15 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             return new SingleLogoutProfileImpl();
         }
 
+        /**
+         * SuccessLogoutHandler Bean:
+         * After successfully logout from this application,
+         * it should redirect to azure portal for logout there,
+         * After azure logout it should redirect to Appian login page
+         *
+         * @return
+         * @throws UnsupportedEncodingException
+         */
         @Bean
         public SimpleUrlLogoutSuccessHandler successLogoutHandler() throws UnsupportedEncodingException {
             SimpleUrlLogoutSuccessHandler successLogoutHandler = new SimpleUrlLogoutSuccessHandler();
@@ -287,6 +364,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             return successLogoutHandler;
         }
 
+        /**
+         * Logout Handler Bean:
+         * Clear authentication and invalidate cache for this application session
+         *
+         * @return
+         */
         @Bean
         public SecurityContextLogoutHandler logoutHandler() {
             SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
@@ -295,11 +378,23 @@ public class WebSecurityConfig implements WebMvcConfigurer {
             return logoutHandler;
         }
 
+        /**
+         * Logout Processing Filter Bean
+         *
+         * @return
+         * @throws UnsupportedEncodingException
+         */
         @Bean
         public SAMLLogoutProcessingFilter samlLogoutProcessingFilter() throws UnsupportedEncodingException {
             return new SAMLLogoutProcessingFilter(successLogoutHandler(), logoutHandler());
         }
 
+        /**
+         * Saml Logout Filter bean: Execute when "logoutURLPath" is called
+         *
+         * @return
+         * @throws UnsupportedEncodingException
+         */
         @Bean
         public SAMLLogoutFilter samlLogoutFilter() throws UnsupportedEncodingException {
             return new SAMLLogoutFilter(successLogoutHandler(),
@@ -307,6 +402,13 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                     new LogoutHandler[] { logoutHandler() });
         }
 
+        /**
+         * AddFilterAfter bean:
+         * After login to application we have filters for redirect urls to correct filters/processes
+         *
+         * @return
+         * @throws Exception
+         */
         @Bean
         public FilterChainProxy samlFilter() throws Exception {
             List<SecurityFilterChain> chains = new ArrayList<>();
