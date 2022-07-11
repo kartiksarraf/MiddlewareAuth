@@ -58,8 +58,10 @@ import javax.servlet.Filter;
 import javax.servlet.SessionCookieConfig;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -152,6 +154,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         @Value("${sp.acs_location_path}")
         private String assertionConsumerServiceURLPath;
 
+        @Value("${appian.logout_url}")
+        private String appianLogoutUrl;
+
+        @Value("${azure.logout_url}")
+        private String azureLogoutUrl;
+
         @Autowired
         private IdpConfiguration idpConfiguration;
 
@@ -200,7 +208,8 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/", "/metadata", "/metadataIp", "/favicon.ico", "/api/**", "/*.css", "/*.js").permitAll()
+                    .antMatchers("/", "/metadata", "/favicon.ico", "/api/**", "/*.css", "/*.js",
+                            azureLogoutUrl + "/**").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().hasRole("USER")
                     .and()
@@ -212,6 +221,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                     .addFilterBefore(metadataGeneratorFilter(), ChannelProcessingFilter.class)
                     .addFilterAfter(samlFilter(), BasicAuthenticationFilter.class)
                     .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/SingleLogoutService"))
                     .addLogoutHandler((request, response, authentication) -> {
                         try {
                             response.sendRedirect("/saml/logout");
@@ -276,9 +286,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         }
 
         @Bean
-        public SimpleUrlLogoutSuccessHandler successLogoutHandler() {
+        public SimpleUrlLogoutSuccessHandler successLogoutHandler() throws UnsupportedEncodingException {
             SimpleUrlLogoutSuccessHandler successLogoutHandler = new SimpleUrlLogoutSuccessHandler();
-            successLogoutHandler.setDefaultTargetUrl("/");
+            /* Logout From Azure AD */
+            String endSessionEndpoint = this.azureLogoutUrl;
+            successLogoutHandler.setDefaultTargetUrl(endSessionEndpoint + "?post_logout_redirect_uri=" +
+                    URLEncoder.encode(appianLogoutUrl, "UTF-8"));
             return successLogoutHandler;
         }
 
@@ -291,12 +304,12 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         }
 
         @Bean
-        public SAMLLogoutProcessingFilter samlLogoutProcessingFilter() {
+        public SAMLLogoutProcessingFilter samlLogoutProcessingFilter() throws UnsupportedEncodingException {
             return new SAMLLogoutProcessingFilter(successLogoutHandler(), logoutHandler());
         }
 
         @Bean
-        public SAMLLogoutFilter samlLogoutFilter() {
+        public SAMLLogoutFilter samlLogoutFilter() throws UnsupportedEncodingException {
             return new SAMLLogoutFilter(successLogoutHandler(),
                     new LogoutHandler[] { logoutHandler() },
                     new LogoutHandler[] { logoutHandler() });

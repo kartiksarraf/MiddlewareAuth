@@ -26,6 +26,8 @@ import org.opensaml.xml.security.criteria.EntityIDCriteria;
 import org.opensaml.xml.signature.SignatureException;
 import org.opensaml.xml.validation.ValidationException;
 import org.opensaml.xml.validation.ValidatorSuite;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.saml.context.SAMLMessageContext;
 import org.springframework.security.saml.key.KeyManager;
 
@@ -36,11 +38,13 @@ import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static auth.utils.SAMLBuilder.*;
+import static java.util.Arrays.asList;
 import static org.opensaml.xml.Configuration.getValidatorSuite;
 
 public class SAMLMessageHandler {
+
+  static Logger log = LoggerFactory.getLogger(SAMLMessageHandler.class);
 
   private final KeyManager keyManager;
   private final Collection<SAMLMessageDecoder> decoders;
@@ -174,8 +178,8 @@ public class SAMLMessageHandler {
     messageContext.setOutboundSAMLMessage(logoutResponse);
 
     messageContext.setOutboundMessageIssuer(entityId);
-
     encoder.encode(messageContext);
+    log.info("Sending logout response for logoutUrl {}", logoutUrl);
   }
 
   private Credential resolveCredential(String entityId) {

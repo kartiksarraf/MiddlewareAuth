@@ -6,12 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controller/SsoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig$ApplicationSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SsoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLMessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLMessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controller/SsoController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

@@ -33,8 +33,6 @@ idp:
   auth_method: ALL
   # Are endpoints compared. If so then pay notice to the base_url when behind a load balancer
   compare_endpoints: true
-  # Logout URL
-  logout_url: https://bpmdev.appcino.com/suite/saml/LogoutConsumer
 
 # Service Provider
 sp:
@@ -64,6 +62,14 @@ sp:
   needs_signing: true
   # Are endpoints compared. If so then pay notice to the base_url when behind a load balancer
   compare_endpoints: true
+
+appian:
+  # Logout URL
+  logout_url: https://bpmdev.appcino.com/suite/
+
+azure:
+  # Logout URL
+  logout_url: https://login.microsoftonline.com/common/oauth2/logout
 
 spring:
   mvc:
