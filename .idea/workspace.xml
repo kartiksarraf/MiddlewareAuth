@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ForceAuthnFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

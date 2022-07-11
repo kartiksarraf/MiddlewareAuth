@@ -55,7 +55,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.Filter;
-import javax.servlet.SessionCookieConfig;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -126,17 +125,6 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         KeyStore keyStore = KeyStoreLocator.createKeyStore(idpPassphrase);
         KeyStoreLocator.addPrivateKey(keyStore, idpEntityId, idpPrivateKey, idpCertificate, idpPassphrase);
         return new JKSKeyManager(keyStore, Collections.singletonMap(idpEntityId, idpPassphrase), idpEntityId);
-    }
-
-    @Bean
-    public ServletContextInitializer servletContextInitializer() {
-        //otherwise the two localhost instances override each other session
-        return servletContext -> {
-            SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
-            sessionCookieConfig.setName("mujinaIdpSessionId");
-            sessionCookieConfig.setSecure(this.secureCookie);
-            sessionCookieConfig.setHttpOnly(true);
-        };
     }
 
     @Configuration
