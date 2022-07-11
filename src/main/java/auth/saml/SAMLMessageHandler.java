@@ -1,6 +1,6 @@
 package auth.saml;
 
-import auth.config.IdpConfiguration;
+import auth.configurations.IdpConfiguration;
 import auth.utils.ProxiedSAMLContextProviderLB;
 import auth.utils.SAMLBuilder;
 import auth.utils.SAMLPrincipal;

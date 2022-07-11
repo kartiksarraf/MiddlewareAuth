@@ -1,6 +1,6 @@
 package auth.saml;
 
-import auth.config.SpConfiguration;
+import auth.configurations.SpConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.velocity.app.VelocityEngine;

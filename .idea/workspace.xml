@@ -6,34 +6,68 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/IdpConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/config/IdpConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/IdpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controller/IdpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/MetadataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controller/MetadataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controller/SsoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/AuthenticationMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/constants/AuthenticationMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/IdpConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/IdpConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/SharedConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/SharedConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/SpConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/SpConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/IdpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/IdpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/MetadataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/MetadataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/SharedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/SharedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/exception/InvalidAuthenticationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/exceptions/InvalidAuthenticationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/model/Credential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/models/Credential.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/CustomMetadataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/CustomMetadataGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/IdpConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/IdpConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/IdpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/IdpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/MetadataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/MetadataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SsoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/IdpConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/config/IdpConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/IdpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controller/IdpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/MetadataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controller/MetadataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controller/SsoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/SAMLConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/SAMLConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/AuthenticationMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/IdpConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/SharedConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/SpConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/config/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/IdpController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/MetadataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SharedController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/SsoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/exception/InvalidAuthenticationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/model/Credential.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomAuthenticationProvider$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomAuthenticationProvider$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomAuthenticationProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomAuthenticationProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomMetadataGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/CustomMetadataGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLMessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/SAMLMessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/AuthenticationMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/IdpConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/SharedConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/SpConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/config/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/IdpController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/MetadataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/SharedController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/SsoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/exception/InvalidAuthenticationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/model/Credential.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/CustomAuthenticationProvider$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/CustomAuthenticationProvider$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/CustomAuthenticationProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/CustomAuthenticationProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/CustomMetadataGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/CustomMetadataGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/SAMLConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/SAMLConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/SAMLMessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/SAMLMessageHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +104,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomIdentityProvider" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="auth.constants" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean -U" />
@@ -82,7 +121,7 @@
       <module name="MiddlewareAuth" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="auth.*" />
+          <option name="PATTERN" value="auth.constants.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,5 +156,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/configurations/SharedConfiguration.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
