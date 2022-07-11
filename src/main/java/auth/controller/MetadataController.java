@@ -46,6 +46,17 @@ public class MetadataController {
   @Autowired
   Environment environment;
 
+  /**
+   * Controller that return metadata of the application (SP + IDP)
+   *
+   * @param idpBaseUrl
+   * @return
+   * @throws SecurityException
+   * @throws ParserConfigurationException
+   * @throws SignatureException
+   * @throws MarshallingException
+   * @throws TransformerException
+   */
   @Autowired
   @RequestMapping(method = RequestMethod.GET, value = "/metadata", produces = "application/xml")
   public String metadata(@Value("${idp.base_url}") String idpBaseUrl) throws SecurityException, ParserConfigurationException, SignatureException, MarshallingException, TransformerException {
@@ -100,6 +111,15 @@ public class MetadataController {
     return writeEntityDescriptor(entityDescriptor);
   }
 
+  /**
+   * Create XML from entity descriptor
+   *
+   * @param entityDescriptor
+   * @return
+   * @throws ParserConfigurationException
+   * @throws MarshallingException
+   * @throws TransformerException
+   */
   private String writeEntityDescriptor(EntityDescriptor entityDescriptor) throws ParserConfigurationException, MarshallingException, TransformerException {
     Marshaller marshaller = Configuration.getMarshallerFactory().getMarshaller(entityDescriptor);
     Element element = marshaller.marshall(entityDescriptor);

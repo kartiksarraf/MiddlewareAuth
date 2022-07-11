@@ -50,22 +50,67 @@ public class SsoController {
   @Value("${appian.logout_url}")
   private String logoutUrl;
 
-  @Value("${idp.base_url}")
-  private String appUrl;
-
+  /**
+   * SingleSignOnService Get Controller (Start point for Appian environemnt Login)
+   *
+   * @param request
+   * @param response
+   * @param authentication
+   * @throws IOException
+   * @throws MarshallingException
+   * @throws SignatureException
+   * @throws MessageEncodingException
+   * @throws ValidationException
+   * @throws SecurityException
+   * @throws MessageDecodingException
+   * @throws MetadataProviderException
+   * @throws ServletException
+   */
   @GetMapping("/SingleSignOnService")
   public void singleSignOnServiceGet(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
           throws IOException, MarshallingException, SignatureException, MessageEncodingException, ValidationException, SecurityException, MessageDecodingException, MetadataProviderException, ServletException {
     doSSO(request, response, authentication, false);
   }
 
+  /**
+   * SingleSignOnService Post Controller (Start point for Appian environemnt Login)
+   *
+   * @param request
+   * @param response
+   * @param authentication
+   * @throws IOException
+   * @throws MarshallingException
+   * @throws SignatureException
+   * @throws MessageEncodingException
+   * @throws ValidationException
+   * @throws SecurityException
+   * @throws MessageDecodingException
+   * @throws MetadataProviderException
+   * @throws ServletException
+   */
   @PostMapping("/SingleSignOnService")
   public void singleLogoutServicePost(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
           throws IOException, MarshallingException, SignatureException, MessageEncodingException, ValidationException, SecurityException, MessageDecodingException, MetadataProviderException, ServletException {
     doSSO(request, response, authentication, true);
   }
 
-  @SuppressWarnings("unchecked")
+  /**
+   * Login Handler
+   *
+   * @param request
+   * @param response
+   * @param authentication
+   * @param postRequest
+   * @throws ValidationException
+   * @throws SecurityException
+   * @throws MessageDecodingException
+   * @throws MarshallingException
+   * @throws SignatureException
+   * @throws MessageEncodingException
+   * @throws MetadataProviderException
+   * @throws IOException
+   * @throws ServletException
+   */
   private void doSSO(HttpServletRequest request, HttpServletResponse response, Authentication authentication, boolean postRequest) throws ValidationException, SecurityException, MessageDecodingException, MarshallingException, SignatureException, MessageEncodingException, MetadataProviderException, IOException, ServletException {
     SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, false);
     log.info("Saml Message Context {}", messageContext);
@@ -88,7 +133,12 @@ public class SsoController {
     samlMessageHandler.sendAuthnResponse(principal, response);
   }
 
-  @SuppressWarnings("unchecked")
+  /**
+   * Set Attributes for SAML Response
+   *
+   * @param authentication
+   * @return
+   */
   private List<SAMLAttribute> attributes(Authentication authentication) {
     String uid = authentication.getName();
     Object principalObject =  authentication.getPrincipal();
@@ -98,18 +148,6 @@ public class SsoController {
     log.info("Auth Details {}", details);
 
     Map<String, List<String>> result = new HashMap<>(idpConfiguration.getAttributes());
-
-   /* Optional<Map<String, List<String>>> optionalMap = idpConfiguration.getUsers().stream()
-            .filter(user -> user.getPrincipal().equals(uid))
-            .findAny()
-            .map(FederatedUserAuthenticationToken::getAttributes);
-    optionalMap.ifPresent(result::putAll);
-
-    //See SAMLAttributeAuthenticationFilter#setDetails
-    Map<String, String[]> parameterMap = (Map<String, String[]>) authentication.getDetails();
-    parameterMap.forEach((key, values) -> {
-      result.put(key, Arrays.asList(values));
-    });*/
 
     //Provide the ability to limit the list attributes returned to the SP
     return result.entrySet().stream()
@@ -126,6 +164,21 @@ public class SsoController {
             .collect(toList());
   }
 
+  /**
+   * Logout Handler (Future Use)
+   *
+   * @param request
+   * @param response
+   * @param authentication
+   * @param postRequest
+   * @throws ValidationException
+   * @throws MessageDecodingException
+   * @throws SecurityException
+   * @throws MetadataProviderException
+   * @throws MessageEncodingException
+   * @throws IOException
+   * @throws ServletException
+   */
   private void doLogout(HttpServletRequest request, HttpServletResponse response, Authentication authentication, boolean postRequest) throws ValidationException, MessageDecodingException, SecurityException, MetadataProviderException, MessageEncodingException, IOException, ServletException {
     SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, true);
     log.info("Saml Message Context {}", messageContext);

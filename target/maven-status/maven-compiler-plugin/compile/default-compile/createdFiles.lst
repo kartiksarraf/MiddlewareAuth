@@ -31,7 +31,6 @@ auth\saml\ResourceMetadataProvider.class
 auth\config\IdpConfiguration.class
 auth\controller\IdpController.class
 auth\saml\CustomMetadataGenerator.class
-auth\model\User.class
 auth\saml\FederatedUserAuthenticationToken.class
 auth\exception\InvalidAuthenticationException.class
 auth\saml\SAMLMessageHandler.class

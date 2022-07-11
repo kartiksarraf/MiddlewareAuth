@@ -2,16 +2,11 @@ package auth.controller;
 
 import auth.config.AuthenticationMethod;
 import auth.config.IdpConfiguration;
-import auth.model.User;
-import auth.saml.FederatedUserAuthenticationToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping(path = "/api", consumes = "application/json")
@@ -55,17 +50,6 @@ public class IdpController extends SharedController {
         configuration().getUsers().stream().filter(userAuthenticationToken -> userAuthenticationToken.getName().equals
                 (userName)).findFirst().orElseThrow(() -> new IllegalArgumentException(String.format("User %s first " +
                 "must be created", userName))).getAttributes().remove(name);
-    }
-
-    @PutMapping("/users")
-    public void addUser(@RequestBody User user) {
-        LOG.info("Request to add user {}", user);
-        FederatedUserAuthenticationToken userAuthenticationToken = new FederatedUserAuthenticationToken(
-                user.getName(),
-                user.getPassword(),
-                user.getAuthorities().stream().map(SimpleGrantedAuthority::new).collect(toList()));
-        userAuthenticationToken.getAttributes().putAll(configuration().getAttributes());
-        configuration().getUsers().add(userAuthenticationToken);
     }
 
     @PutMapping("authmethod")

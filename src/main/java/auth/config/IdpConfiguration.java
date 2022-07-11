@@ -44,18 +44,9 @@ public class IdpConfiguration extends SharedConfiguration {
     setEntityId(defaultEntityId);
     resetAttributes();
     resetKeyStore(defaultEntityId, idpPrivateKey, idpCertificate);
-    resetUsers();
     setAcsEndpoint(null);
     setAuthenticationMethod(this.defaultAuthenticationMethod);
     setSignatureAlgorithm(getDefaultSignatureAlgorithm());
-  }
-
-  private void resetUsers() {
-    users.clear();
-    users.addAll(Arrays.asList(
-      new FederatedUserAuthenticationToken("admin", "secret", Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"),
-        new SimpleGrantedAuthority("ROLE_ADMIN"))),
-      new FederatedUserAuthenticationToken("user", "secret", Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")))));
   }
 
   private void resetAttributes() {

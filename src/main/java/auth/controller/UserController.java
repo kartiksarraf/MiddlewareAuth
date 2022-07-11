@@ -23,20 +23,27 @@ public class UserController {
     this.samlAttributes = objectMapper.readValue(new ClassPathResource("saml-attributes.json").getInputStream(), List.class);
   }
 
+  /**
+   * Default Landing Page of the application
+   *
+   * @param authentication
+   * @return
+   */
   @GetMapping("/")
   public String index(Authentication authentication) {
     return authentication == null ? "index" : "redirect:/user.html";
   }
 
+  /**
+   * User Page, when user successfully logged in the system
+   *
+   * @param authentication
+   * @param modelMap
+   * @return
+   */
   @GetMapping("/user.html")
   public String user(Authentication authentication, ModelMap modelMap) {
     modelMap.addAttribute("user", authentication);
     return "user";
-  }
-
-  @GetMapping("/login")
-  public String login(ModelMap modelMap) {
-    modelMap.addAttribute("samlAttributes", samlAttributes);
-    return "login";
   }
 }

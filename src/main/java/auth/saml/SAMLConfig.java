@@ -105,12 +105,6 @@ public class SAMLConfig {
     return new ConfigurableSAMLProcessor(bindings, spConfiguration);
   }
 
-  /*@Bean
-  public static SAMLBootstrap sAMLBootstrap() {
-    return new UpgradedSAMLBootstrap();
-  }
-*/
-
   @Bean
   public SAMLDefaultLogger samlLogger() {
     return new SAMLDefaultLogger();

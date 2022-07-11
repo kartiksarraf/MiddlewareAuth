@@ -23,7 +23,6 @@ C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\FederatedUse
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\MiddlewareAuthApplication.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\ConfigurableSAMLProcessor.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\controller\IdpController.java
-C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\model\User.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\SAMLPrincipal.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\controller\MetadataController.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\controller\SharedController.java
