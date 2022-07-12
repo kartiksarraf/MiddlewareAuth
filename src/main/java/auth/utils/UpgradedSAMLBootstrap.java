@@ -8,6 +8,11 @@ import org.springframework.security.saml.SAMLBootstrap;
 
 public class UpgradedSAMLBootstrap extends SAMLBootstrap {
 
+  /**
+   * Post Process BeanFactory: Override actual method in samlBootstrap using our customize config
+   *
+   * @param beanFactory
+   */
   @Override
   public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     super.postProcessBeanFactory(beanFactory);

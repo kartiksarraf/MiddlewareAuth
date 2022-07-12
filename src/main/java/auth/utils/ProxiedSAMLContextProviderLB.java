@@ -10,6 +10,11 @@ import java.net.URI;
 
 public class ProxiedSAMLContextProviderLB extends SAMLContextProviderLB {
 
+  /**
+   * Constructor
+   *
+   * @param uri
+   */
   public ProxiedSAMLContextProviderLB(URI uri) {
     super();
     setServerName(uri.getHost());
@@ -21,6 +26,14 @@ public class ProxiedSAMLContextProviderLB extends SAMLContextProviderLB {
     }
   }
 
+  /**
+   * populate generic context override actual method with current request, response and context
+   *
+   * @param request
+   * @param response
+   * @param context
+   * @throws MetadataProviderException
+   */
   @Override
   public void populateGenericContext(HttpServletRequest request, HttpServletResponse response, SAMLMessageContext context) throws MetadataProviderException {
     super.populateGenericContext(request, response, context);

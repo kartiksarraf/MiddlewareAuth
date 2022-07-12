@@ -1,7 +1,7 @@
 package auth.saml;
 
-import auth.config.IdpConfiguration;
-import auth.exception.InvalidAuthenticationException;
+import auth.configurations.IdpConfiguration;
+import auth.exceptions.InvalidAuthenticationException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,7 +11,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
 
-import static auth.config.AuthenticationMethod.ALL;
+import static auth.constants.AuthenticationMethod.ALL;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 

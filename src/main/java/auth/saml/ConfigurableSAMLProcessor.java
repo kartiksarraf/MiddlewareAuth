@@ -1,6 +1,6 @@
 package auth.saml;
 
-import auth.config.SpConfiguration;
+import auth.configurations.SpConfiguration;
 import org.opensaml.common.SAMLException;
 import org.opensaml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml2.metadata.Endpoint;

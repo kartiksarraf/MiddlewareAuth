@@ -1,5 +1,7 @@
 package auth.utils;
 
+import auth.models.SAMLAttribute;
+import auth.models.SAMLPrincipal;
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
 import org.opensaml.saml2.core.*;

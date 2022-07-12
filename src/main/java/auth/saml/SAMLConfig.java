@@ -1,6 +1,6 @@
 package auth.saml;
 
-import auth.config.SpConfiguration;
+import auth.configurations.SpConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.velocity.app.VelocityEngine;
@@ -104,12 +104,6 @@ public class SAMLConfig {
     bindings.add(httpPAOS11Binding(parserPool));
     return new ConfigurableSAMLProcessor(bindings, spConfiguration);
   }
-
-  /*@Bean
-  public static SAMLBootstrap sAMLBootstrap() {
-    return new UpgradedSAMLBootstrap();
-  }
-*/
 
   @Bean
   public SAMLDefaultLogger samlLogger() {

@@ -1,6 +1,6 @@
 package auth.saml;
 
-import auth.config.IdpConfiguration;
+import auth.configurations.IdpConfiguration;
 import org.opensaml.common.SAMLObjectBuilder;
 import org.opensaml.common.xml.SAMLConstants;
 import org.opensaml.saml2.metadata.*;
