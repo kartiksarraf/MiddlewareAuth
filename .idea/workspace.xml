@@ -6,18 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/MiddlewareAuthApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/MiddlewareAuthApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/exceptions/InvalidAuthenticationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/exceptions/InvalidAuthenticationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/models/Credential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/models/Credential.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/DefaultSAMLUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/DefaultSAMLUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/KeyStoreLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/utils/KeyStoreLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/ProxiedSAMLContextProviderLB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/utils/ProxiedSAMLContextProviderLB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/SAMLAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/models/SAMLAttribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/SAMLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/utils/SAMLBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/SAMLPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/models/SAMLPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/utils/UpgradedSAMLBootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/utils/UpgradedSAMLBootstrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
