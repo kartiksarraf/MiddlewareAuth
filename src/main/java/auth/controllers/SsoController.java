@@ -2,8 +2,8 @@ package auth.controllers;
 
 import auth.configurations.IdpConfiguration;
 import auth.saml.SAMLMessageHandler;
-import auth.utils.SAMLAttribute;
-import auth.utils.SAMLPrincipal;
+import auth.models.SAMLAttribute;
+import auth.models.SAMLPrincipal;
 import org.opensaml.common.binding.SAMLMessageContext;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.LogoutRequest;

@@ -8,13 +8,14 @@ C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\Configurable
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\SpConfiguration.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\ProxiedSAMLContextProviderLB.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\UpgradedSAMLBootstrap.java
+C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\models\SAMLPrincipal.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLAttributeAuthenticationFilter.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\WebSecurityConfig.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\DefaultSAMLUserDetailsService.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\RoleSAMLAuthenticationProvider.java
-C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\SAMLAttribute.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\ResourceMetadataProvider.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\SwaggerConfig.java
+C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\models\SAMLAttribute.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLConfig.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\DefaultMetadataDisplayFilter.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\controllers\IdpController.java
@@ -24,7 +25,6 @@ C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\constants\SamlRes
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\controllers\SsoController.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\MiddlewareAuthApplication.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\ConfigurableSAMLProcessor.java
-C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\SAMLPrincipal.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLMessageHandler.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\constants\AuthenticationMethod.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\CustomMetadataGenerator.java

@@ -7,6 +7,9 @@ import lombok.ToString;
 
 import java.io.Serializable;
 
+/**
+ * Credential POJO Class
+ */
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

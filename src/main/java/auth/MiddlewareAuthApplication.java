@@ -8,6 +8,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication()
 public class MiddlewareAuthApplication extends SpringBootServletInitializer {
 
+    /**
+     * SpringApplicationBuilder: Main purpose is to create WAR file for tomcat deployment
+     *
+     * @param application
+     * @return
+     */
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(MiddlewareAuthApplication.class);

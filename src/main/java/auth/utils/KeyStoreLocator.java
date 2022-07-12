@@ -20,7 +20,7 @@ import java.util.Base64;
 
 public class KeyStoreLocator {
 
-  private static CertificateFactory certificateFactory;
+  private static final CertificateFactory certificateFactory;
 
   static {
     try {
@@ -30,6 +30,12 @@ public class KeyStoreLocator {
     }
   }
 
+  /**
+   * Create key store using pass phrase
+   *
+   * @param pemPassPhrase
+   * @return
+   */
   public static KeyStore createKeyStore(String pemPassPhrase) {
     try {
       KeyStore keyStore = KeyStore.getInstance("JKS");
@@ -41,7 +47,21 @@ public class KeyStoreLocator {
     }
   }
 
-  //privateKey must be in the DER unencrypted PKCS#8 format. See README.md
+  /**
+   * Add private key in keystore
+   * PrivateKey must be in the DER unencrypted PKCS#8 format.
+   *
+   * @param keyStore
+   * @param alias
+   * @param privateKey
+   * @param certificate
+   * @param password
+   * @throws IOException
+   * @throws NoSuchAlgorithmException
+   * @throws InvalidKeySpecException
+   * @throws KeyStoreException
+   * @throws CertificateException
+   */
   public static void addPrivateKey(KeyStore keyStore, String alias, String privateKey, String certificate, String password) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, KeyStoreException, CertificateException {
     String wrappedCert = wrapCert(certificate);
     byte[] decodedKey = Base64.getDecoder().decode(privateKey.getBytes());
@@ -58,6 +78,12 @@ public class KeyStoreLocator {
     keyStore.setKeyEntry(alias, privKey, passwordChars, certs.toArray(new Certificate[certs.size()]));
   }
 
+  /**
+   * Wrap certificate using prefix: BEGIN CERT.., and suffix: END Cert.
+   *
+   * @param certificate
+   * @return
+   */
   private static String wrapCert(String certificate) {
     return "-----BEGIN CERTIFICATE-----\n" + certificate + "\n-----END CERTIFICATE-----";
   }

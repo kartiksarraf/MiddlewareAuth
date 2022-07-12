@@ -1,8 +1,8 @@
 package auth.saml;
 
-import auth.utils.SAMLAttribute;
+import auth.models.SAMLAttribute;
 import auth.utils.SAMLBuilder;
-import auth.utils.SAMLPrincipal;
+import auth.models.SAMLPrincipal;
 import org.opensaml.saml2.core.NameID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

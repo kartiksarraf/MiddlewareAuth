@@ -3,7 +3,7 @@ package auth.saml;
 import auth.configurations.IdpConfiguration;
 import auth.utils.ProxiedSAMLContextProviderLB;
 import auth.utils.SAMLBuilder;
-import auth.utils.SAMLPrincipal;
+import auth.models.SAMLPrincipal;
 import org.joda.time.DateTime;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.common.binding.BasicSAMLMessageContext;
@@ -55,6 +55,17 @@ public class SAMLMessageHandler {
   private final List<ValidatorSuite> validatorSuites;
   private final ProxiedSAMLContextProviderLB proxiedSAMLContextProviderLB;
 
+  /**
+   * Constructor
+   *
+   * @param keyManager
+   * @param decoders
+   * @param encoder
+   * @param securityPolicyResolver
+   * @param idpConfiguration
+   * @param idpBaseUrl
+   * @throws URISyntaxException
+   */
   public SAMLMessageHandler(KeyManager keyManager, Collection<SAMLMessageDecoder> decoders,
                             SAMLMessageEncoder encoder, SecurityPolicyResolver securityPolicyResolver,
                             IdpConfiguration idpConfiguration, String idpBaseUrl) throws URISyntaxException {
@@ -69,6 +80,19 @@ public class SAMLMessageHandler {
     this.proxiedSAMLContextProviderLB = new ProxiedSAMLContextProviderLB(new URI(idpBaseUrl));
   }
 
+  /**
+   * Extract SAML Message from servlet request and response
+   *
+   * @param request
+   * @param response
+   * @param postRequest
+   * @param isLogoutRequest
+   * @return
+   * @throws ValidationException
+   * @throws SecurityException
+   * @throws MessageDecodingException
+   * @throws MetadataProviderException
+   */
   public SAMLMessageContext extractSAMLMessageContext(HttpServletRequest request, HttpServletResponse response,
                                                       boolean postRequest, boolean isLogoutRequest) throws ValidationException, SecurityException, MessageDecodingException, MetadataProviderException {
     SAMLMessageContext messageContext = new SAMLMessageContext();
@@ -99,6 +123,12 @@ public class SAMLMessageHandler {
     return messageContext;
   }
 
+  /**
+   * Decode SAML Message that comes in request/response using SAMLMessageDecoder depends on binding
+   *
+   * @param postRequest
+   * @return
+   */
   private SAMLMessageDecoder samlMessageDecoder(boolean postRequest) {
     return decoders.stream().filter(samlMessageDecoder -> postRequest ?
                     samlMessageDecoder.getBindingURI().equals(SAMLConstants.SAML2_POST_BINDING_URI) :
@@ -109,8 +139,18 @@ public class SAMLMessageHandler {
                     SAMLConstants.SAML2_POST_BINDING_URI)));
   }
 
+  /**
+   * Send Auth Response when user able to login successfully using principal and response
+   *
+   * @param principal
+   * @param response
+   * @throws MarshallingException
+   * @throws SignatureException
+   * @throws MessageEncodingException
+   */
   @SuppressWarnings("unchecked")
   public void sendAuthnResponse(SAMLPrincipal principal, HttpServletResponse response) throws MarshallingException, SignatureException, MessageEncodingException {
+    log.info("Sending auth response for requestId {}", principal.getRequestID());
     Status status = buildStatus(StatusCode.SUCCESS_URI);
 
     String entityId = idpConfiguration.getEntityId();
@@ -148,10 +188,18 @@ public class SAMLMessageHandler {
     messageContext.setRelayState(principal.getRelayState());
 
     encoder.encode(messageContext);
-
   }
 
+  /**
+   * Send Logout Response when user able to logout successfully using principal and response
+   *
+   * @param logoutRequest
+   * @param response
+   * @param logoutUrl
+   * @throws MessageEncodingException
+   */
   public void sendLogoutResponse(LogoutRequest logoutRequest, HttpServletResponse response, String logoutUrl) throws MessageEncodingException {
+    log.info("Sending logout response for requestId {}", logoutRequest.getID());
     Status status = buildStatus(StatusCode.SUCCESS_URI);
 
     String entityId = idpConfiguration.getEntityId();
@@ -179,9 +227,14 @@ public class SAMLMessageHandler {
 
     messageContext.setOutboundMessageIssuer(entityId);
     encoder.encode(messageContext);
-    log.info("Sending logout response for logoutUrl {}", logoutUrl);
   }
 
+  /**
+   * Resolve credential using entityId
+   *
+   * @param entityId
+   * @return
+   */
   private Credential resolveCredential(String entityId) {
     try {
       return keyManager.resolveSingle(new CriteriaSet(new EntityIDCriteria(entityId)));
