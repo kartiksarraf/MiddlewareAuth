@@ -30,9 +30,19 @@ public class ConfigurableSAMLProcessor extends SAMLProcessorImpl {
 
         SAMLBinding binding = getBinding(endpoint);
 
+        /*NameID nameID = buildSAMLObject(NameID.class, NameID.DEFAULT_ELEMENT_NAME);
+        nameID.setValue("kartiks@appcinotechnologies676.onmicrosoft.com");
+        nameID.setFormat(NameIDType.EMAIL);
+
+        Subject subject = buildSAMLObject(Subject.class, Subject.DEFAULT_ELEMENT_NAME);
+        subject.setNameID(nameID);*/
+
         samlContext.setLocalEntityId(spConfiguration.getEntityId());
         samlContext.getLocalEntityMetadata().setEntityID(spConfiguration.getEntityId());
         samlContext.getPeerEntityEndpoint().setLocation(spConfiguration.getIdpSSOServiceURL());
+        /*AuthnRequest authnRequest = (AuthnRequest) samlContext.getOutboundSAMLMessage();
+        authnRequest.setSubject(subject);
+        samlContext.setOutboundSAMLMessage(authnRequest);*/
 
         SPSSODescriptor roleDescriptor = (SPSSODescriptor) samlContext.getLocalEntityMetadata().getRoleDescriptors().get(0);
         AssertionConsumerService assertionConsumerService = roleDescriptor.getAssertionConsumerServices().stream().filter(service -> service.isDefault()).findAny().orElseThrow(() -> new RuntimeException("No default ACS"));
@@ -40,6 +50,5 @@ public class ConfigurableSAMLProcessor extends SAMLProcessorImpl {
         assertionConsumerService.setLocation(spConfiguration.getAssertionConsumerServiceURL());
 
         return super.sendMessage(samlContext, spConfiguration.isNeedsSigning(), binding);
-
     }
 }

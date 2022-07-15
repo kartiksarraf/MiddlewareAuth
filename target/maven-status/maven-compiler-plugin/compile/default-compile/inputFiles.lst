@@ -13,6 +13,7 @@ C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLAttribut
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\WebSecurityConfig.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\DefaultSAMLUserDetailsService.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\RoleSAMLAuthenticationProvider.java
+C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\CustomHttpSessionListener.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\ResourceMetadataProvider.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\SwaggerConfig.java
 C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\java\auth\models\SAMLAttribute.java

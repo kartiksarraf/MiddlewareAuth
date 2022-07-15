@@ -27,6 +27,7 @@ auth\configurations\SpConfiguration.class
 auth\saml\SAMLAttributeAuthenticationFilter.class
 auth\models\SAMLPrincipal.class
 auth\controllers\UserController.class
+auth\configurations\CustomHttpSessionListener.class
 auth\saml\ResourceMetadataProvider.class
 auth\configurations\WebSecurityConfig$ApplicationSecurity.class
 auth\saml\CustomMetadataGenerator.class
