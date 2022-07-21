@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/CustomHttpSessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/CustomHttpSessionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controllers/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controllers/SsoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/controllers/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controllers/SsoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +57,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CustomIdentityProvider" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="auth.models" />
       <recent name="auth.constants" />
@@ -79,6 +75,7 @@
     <option name="myCommands">
       <command value="mvn clean -U" />
       <command value="mvn compile -U" />
+      <command value="mvn  clean ins" />
     </option>
   </component>
   <component name="RunManager">
