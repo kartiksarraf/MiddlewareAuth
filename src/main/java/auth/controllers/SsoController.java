@@ -115,7 +115,7 @@ public class SsoController {
    */
   private void doSSO(HttpServletRequest request, HttpServletResponse response, Authentication authentication, boolean postRequest) throws ValidationException, SecurityException, MessageDecodingException, MarshallingException, SignatureException, MessageEncodingException, MetadataProviderException, IOException, ServletException {
     SAMLMessageContext messageContext = samlMessageHandler.extractSAMLMessageContext(request, response, postRequest, false);
-    log.info("Saml Message Context {}", messageContext);
+    log.info("Saml Message Context {}", messageContext.toString());
     AuthnRequest authnRequest = (AuthnRequest) messageContext.getInboundSAMLMessage();
 
     String assertionConsumerServiceURL = idpConfiguration.getAcsEndpoint() != null ? idpConfiguration.getAcsEndpoint() : authnRequest.getAssertionConsumerServiceURL();

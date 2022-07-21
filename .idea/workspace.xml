@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/CustomHttpSessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/configurations/CustomHttpSessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controllers/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/controllers/SsoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CustomIdp/WEB-INF/classes/auth/saml/ConfigurableSAMLProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/controllers/SsoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/controllers/SsoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +117,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="refactoring" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -134,19 +149,49 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLAttributeAuthenticationFilter.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLConfig.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLProcessor.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/controllers/SsoController.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java</url>
           <line>52</line>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/SAMLMessageHandler.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
