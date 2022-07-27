@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-poc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-poc.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth.war.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application-poc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application-poc.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +87,9 @@
   </component>
   <component name="RunManager">
     <configuration name="MiddlewareAuthApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="spring.profiles.active" value="poc" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="auth.MiddlewareAuthApplication" />
       <module name="MiddlewareAuth" />
       <extension name="coverage">
@@ -139,6 +148,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="248" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1658495877073" />
+    <state x="222" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1658733042530">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="222" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1658733042530" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1658748923093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1658748923093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1658748923093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1658748923093">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

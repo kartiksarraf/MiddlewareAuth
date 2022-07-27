@@ -47,9 +47,9 @@ sp:
   # Passphrase of the keystore
   passphrase: secret
   # Resource URL for the idp metadata
-  idp_metadata_url: metadata/metadata.xml
+  idp_metadata_url: metadata/metadata-poc.xml
   # SingleSignOnServiceLocation
-  single_sign_on_service_location: https://login.microsoftonline.com/980fac14-ee17-4230-bee0-1508d03b9f2f/saml2
+  single_sign_on_service_location: https://login.microsoftonline.com/f35a6974-607f-47d4-82d7-ff31d7dc53a5/saml2
   # ACS location
   acs_location_path: /saml/SSO
   # Logout Path

@@ -36,9 +36,9 @@ public class ConfigurableSAMLEntryPoint extends SAMLEntryPoint {
         } catch (ValidationException | SecurityException | MessageDecodingException | MetadataProviderException ex) {
             ex.printStackTrace();
         }
-        log.info("Saml Message Context {}", messageContext.toString());
+        /*log.info("Saml Message Context {}", messageContext.toString());
         AuthnRequest authnRequest = (AuthnRequest) messageContext.getInboundSAMLMessage();
-        log.info("Authn Request {}", authnRequest);
+        log.info("Authn Request {}", authnRequest);*/
         super.commence(request, response, e);
     }
 
