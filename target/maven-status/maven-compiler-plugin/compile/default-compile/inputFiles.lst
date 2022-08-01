@@ -12,6 +12,7 @@ C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\DefaultSAM
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\SpConfiguration.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\SwaggerConfig.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\MiddlewareAuthApplication.java
+C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\ParameterStringBuilder.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\UpgradedSAMLBootstrap.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\SAMLBuilder.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\controllers\IdpController.java
@@ -24,10 +25,12 @@ C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\exceptions\Inva
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLConfig.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\WebSecurityConfig.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\constants\SamlResponseAttributes.java
+C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\HttpRequestUtils.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\CustomAuthenticationProvider.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\IdpConfiguration.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\RoleSAMLAuthenticationProvider.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\controllers\SsoController.java
+C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\controllers\WecomController.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\configurations\CustomHttpSessionListener.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\utils\KeyStoreLocator.java
 C:\Users\SARRAKA1\IdeaProjects\MiddlewareAuth\src\main\java\auth\saml\SAMLAttributeAuthenticationFilter.java
