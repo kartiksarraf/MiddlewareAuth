@@ -246,7 +246,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/", "/metadata", "/favicon.ico", "/api/**", "/*.css", "/*.js", azureLogoutUrl + "/**").permitAll()
+                    .antMatchers("/", "/wecom/**","/metadata", "/favicon.ico", "/api/**", "/*.css", "/*.js", azureLogoutUrl + "/**").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().hasRole("USER")
                     .and()

@@ -6,13 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c664a-339a-4741-94d0-cc7f92040e79" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/auth/configurations/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-poc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-poc.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/metadata/metadata-poc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/metadata/metadata-poc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth.war.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth.war.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application-poc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application-poc.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/saml/ConfigurableSAMLEntryPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/metadata/metadata-poc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MiddlewareAuth/WEB-INF/classes/metadata/metadata-poc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-poc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-poc.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/auth/configurations/WebSecurityConfig$ApplicationSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/metadata/metadata-poc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/metadata/metadata-poc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +79,15 @@
     <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="auth.models" />
       <recent name="auth.constants" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="auth.controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\IdeaProjects\MiddlewareAuth\src\main\resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -152,22 +164,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="222" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1658733042530" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1658748923093">
+    <state x="523" y="115" key="#xdebugger.evaluate" timestamp="1658986098609">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1658748923093">
+    <state x="523" y="115" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1658986098609" />
+    <state width="1493" height="86" key="GridCell.Tab.0.bottom" timestamp="1659095331583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1658748923093">
+    <state width="1493" height="86" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1659095331583" />
+    <state width="1493" height="86" key="GridCell.Tab.0.center" timestamp="1659095331583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1658748923093">
+    <state width="1493" height="86" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1659095331583" />
+    <state width="1493" height="86" key="GridCell.Tab.0.left" timestamp="1659095331583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1658748923093" />
+    <state width="1493" height="86" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1659095331583" />
+    <state width="1493" height="86" key="GridCell.Tab.0.right" timestamp="1659095331583">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="86" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1659095331583" />
+    <state width="1493" height="134" key="GridCell.Tab.1.bottom" timestamp="1658994275306">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="134" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1658994275306" />
+    <state width="1493" height="134" key="GridCell.Tab.1.center" timestamp="1658994275306">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="134" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1658994275306" />
+    <state width="1493" height="134" key="GridCell.Tab.1.left" timestamp="1658994275306">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="134" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1658994275306" />
+    <state width="1493" height="134" key="GridCell.Tab.1.right" timestamp="1658994275306">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="134" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1658994275306" />
+    <state x="402" y="90" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1658929289262">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="402" y="90" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1658929289262" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,6 +262,46 @@
           <url>file://$PROJECT_DIR$/src/main/java/auth/saml/ConfigurableSAMLEntryPoint.java</url>
           <line>40</line>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/controllers/WecomController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/controllers/WecomController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/auth/utils/HttpRequestUtils.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -64,6 +64,8 @@ sp:
   compare_endpoints: true
 
 appian:
+  # Login URL
+  login_url: https://bpmdev.appcino.com/suite/
   # Logout URL
   logout_url: https://bpmdev.appcino.com/suite/
 
